@@ -9,8 +9,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Button, Box, TextField } from "@material-ui/core";
 
 function Login() {
-  const [user, setUser] = useState();
-  const [password, setPassword] = useState();
   const [formData, setFormData] = useState("");
   const [isLogged, setIsLogged] = useState(false);
   const [sucess, setSucess] = useState(true);
@@ -56,12 +54,7 @@ function Login() {
   return (
     <>
       {isLogged ? (
-        <Display
-          formData={formData}
-          setIsLogged={setIsLogged}
-          setUser={setUser}
-          setPassword={setPassword}
-        />
+        <Display formData={formData} setIsLogged={setIsLogged} />
       ) : (
         <Box
           component="form"
@@ -92,8 +85,6 @@ function Login() {
             <Grid item>
               <TextField
                 variant="outlined"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
                 type="password"
                 label="PassWord"
                 {...register("password")}
